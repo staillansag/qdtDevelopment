@@ -41,10 +41,7 @@ Simply use this command:
 
 Rename the environment.variables.example file into environment.variables, and choose passwords for Postgres and the MSR Administrator user.  
 
-For Salesforce connectivity, create a Oauth2 app in Salesforce, leave the PKCE option unticked and do populate http://localhost:5555/WmCloudStreams/oauth-redirect.dsp as the callback url.
-You're going to get a consumer ID and secret that you can place in the environment.variables.  
-Provider and Insrance URL should be of the form https://<prefix>.salesforce.com  
-Access token and refresh token will be dealt with later.  
+For Salesforce connectivity, this will be managed later.
 
 Note that we don't need to change the application.properties file.  
 
