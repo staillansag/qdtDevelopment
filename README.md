@@ -48,7 +48,9 @@ Note that we don't need to change the application.properties file.
 
 3.  Manage the MSR license
 
-Create a license folder and please your MSR license in it, renaming it to msr-license.xml  
+Create a license folder and place in it:
+-   your MSR license file, with the name msr-license.xml 
+-   your UM license file, with the name um-license.xml 
 
 4.  Manage the integration packages
 
