@@ -139,14 +139,14 @@ docker exec -it postgresql psql -U postgres -d postgres -f /tmp/reference_data.i
 7.  Import the postman assets
 
 There are three Postman collections, 1 for each API:
-./packages/qdtContactManagement/resources/tests/ContactManagementAutomated.postman_collection.json
-./packages/qdtAccountManagement/resources/tests/AccountManagement.postman_collection.json
-./packages/qdtBackendForFrontend/resources/tests/BackendForFrontend.postman_collection.json
+- ./packages/qdtContactManagement/resources/tests/ContactManagementAutomated.postman_collection.json
+- ./packages/qdtAccountManagement/resources/tests/AccountManagement.postman_collection.json
+- ./packages/qdtBackendForFrontend/resources/tests/BackendForFrontend.postman_collection.json
 
 And same for the environments:
-./packages/qdtContactManagement/resources/tests/ContactManagement.postman_environment.json
-./packages/qdtAccountManagement/resources/tests/AccountManagement.postman_environment.json
-./packages/qdtBackendForFrontend/resources/tests/BackendForFrontend.postman_environment.json
+- ./packages/qdtContactManagement/resources/tests/ContactManagement.postman_environment.json
+- ./packages/qdtAccountManagement/resources/tests/AccountManagement.postman_environment.json
+- ./packages/qdtBackendForFrontend/resources/tests/BackendForFrontend.postman_environment.json
 
 Import these 6 files into Postman.
 
