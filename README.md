@@ -184,4 +184,12 @@ Next, go to Postman and create a new Collection. Edit its settings and go to the
 - State: specify a random string
 - Client authentication: Send client credentials in body
 
-Click on "Get new access token". You should see a consent screen appear in a popup window. Do provide consent, this will trigger the display of the access token and refresh token.
+Click on "Get new access token". You should see a consent screen appear in a popup window. Do provide consent, this will trigger the display of the access token and refresh token.  
+
+Now you can fill in the properties in environment.variables:
+SALESFORCE_PROVIDER_URL=https://<your-env-prefix>.salesforce.com
+SALESFORCE_INSTANCE_URL=https://<your-env-prefix>.salesforce.com
+SALESFORCE_CONSUMER_ID=<Salesforce consumer key (from the Oauth2 app you created)>
+SALESFORCE_CONSUMER_SECRET=<Salesforce consumer secret (from the Oauth2 app you created)>
+SALESFORCE_ACCESS_TOKEN=00D7Q000004uMTU!ARYAQIHoxSxOqe1mrxlBEOJn744tBtNmjcNhygZjxmHdHfHYe60x0SxaFlzrFmiMjCKN7PhmuTGeup1yiGmzmyqJ0v4v2ZOI
+SALESFORCE_REFRESH_TOKEN=5Aep861yNl8cSWS3xW9iNWturrfFfXOp7iNJiau8AnFNQxHK5CfhVMNSCcKLAk9yub7I_fqgqaagvhR.VxkeOLm
