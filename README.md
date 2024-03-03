@@ -1,13 +1,18 @@
 # qdtDevelopment
 
-This repo contains various artifacts to setup the webMethods API development environment using Docker Compose
+This repo contains various artifacts to setup the webMethods API development environment using Docker Compose.  
+The following picture describes the architecture of this development environment:
+![Containerized Development Environment](./documentation/qdt-containerized-development-environment.png)
+
+We have 5 submodules for this repo, one per integration package that needs to be mounted into the Microservice Runtime.
+
 
 ##  Content of the Docker Compose stack
 
 ### Postgres database
 
-We create a sandbox database, which we access using the JDBC adapter.
-This database could also be used for the ISInternal, ISCoreAudit, ISDashboardStats and other webMethods internal schemas, but I've kept things simple here and configured an embedded database.
+We create a sandbox database, which we access using the JDBC adapter to manage contact information.
+This database could also be used for the ISInternal, ISCoreAudit, ISDashboardStats and other webMethods internal schemas, but I've kept things simple here and configured an embedded database for these internal schemas.
 
 The container is initialized with a user and a password that are defined in the environment.variables file.
 
@@ -34,8 +39,8 @@ Follow this process, step by step.
 
 1.  Clone this repository
 
-Simply use this command:
-```git clone https://github.com/staillansag/qdtDevelopment.git```
+Simply use this command to clone the parent repo and its 5 submodules (one submodule per integration package):
+```git clone --recurse-submodules https://github.com/staillansag/qdtDevelopment.git```
 
 2.  Manage the configuration
 
@@ -46,26 +51,16 @@ For Salesforce connectivity, this will be managed later.
 Note that we don't need to change the application.properties file.  
 
 
-3.  Manage the MSR license
+1.  Manage the license files
 
 Create a license folder and place in it:
 -   your MSR license file, with the name msr-license.xml 
 -   your UM license file, with the name um-license.xml 
 
-4.  Manage the integration packages
 
-Create a packages folder, and cd into it. Then clone the github repos using the following commands:
-```
-git clone https://github.com/staillansag/qdtReferenceData.git
-git clone https://github.com/staillansag/qdtContactManagement.git
-git clone https://github.com/staillansag/qdtBackendForFrontend.git
-git clone https://github.com/staillansag/qdtAccountManagement.git
-git clone https://github.com/staillansag/qdtFramework.git
-```
+4.  Start the Docker Compose stack
 
-5.  Start the Docker Compose stack
-
-Go back to the root qdtDevelopment folder and issue the following command:
+Ensure you're in the root qdtDevelopment folder and issue the following command:
 ```
 docker-compose up -d
 ```
@@ -118,11 +113,7 @@ Open you designer and go to Preferences (or Settings in MacOS), Software AG subm
 
 You should then be able to connect to the containerized MSR and see its packages.  
 
-7.  Finish the CloudStreams Salesforce config
-
-TODO
-
-8.  Create the Postgres tables
+7.  Create and initialize the Postgres tables
 
 There are DDL files in the following locations:
 -   ./packages/qdtContactManagement/resources/database/contacts.ddl.sql
@@ -145,7 +136,7 @@ docker exec -it postgresql psql -U postgres -d postgres -f /tmp/reference_data.d
 docker exec -it postgresql psql -U postgres -d postgres -f /tmp/reference_data.insert.sql
 ```
 
-9.  Import the postman assets
+8.  Import the postman assets
 
 There are three Postman collections, 1 for each API:
 ./packages/qdtContactManagement/resources/tests/ContactManagementAutomated.postman_collection.json
@@ -159,13 +150,17 @@ And same for the environments:
 
 Import these 6 files into Postman.
 
-For the environments, do the following adjustments:
+For the environments, configure the following urls to access the APIs:
 -   For AccountManagement, the url is http://localhost:5555/rad/qdtAccountManagement.api:AccountManagementAPI
 -   For ContactManagement, the url is http://localhost:5555/rad/qdtContactManagement.api:ContactManagementAPI
 -   For BackendForFrontEnd, the url is http://localhost:5555/rad/qdtBackendForFrontend.apiServer:BackendForFrontendAPI_1_0_0
--   For the three environment:
-    -   userName = Administrator
-    -   password = the password you defined for the Administrator user in environment.variables
+
+For the three environment:
+-   userName = Administrator
+-   password = the password you defined for the Administrator user in environment.variables
 
 Now you're ready to test the APIs with Postman.
 
+9.  Configuration of the CloudStreams Salesforce connector
+
+TODO
