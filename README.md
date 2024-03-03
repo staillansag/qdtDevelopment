@@ -51,7 +51,7 @@ For Salesforce connectivity, this will be managed later.
 Note that we don't need to change the application.properties file.  
 
 
-1.  Manage the license files
+3.  Manage the license files
 
 Create a license folder and place in it:
 -   your MSR license file, with the name msr-license.xml 
@@ -102,7 +102,7 @@ If you need to do some troubleshooting, then use the following command, which di
 docker logs msr
 ```
 
-6.  Connect the designer to the MSR
+5.  Connect the designer to the MSR
 
 Open you designer and go to Preferences (or Settings in MacOS), Software AG submenu, Integration Server, and then add a new server which points to your containerized MSR:
 -   Name: Docker (or anything you like)
@@ -113,7 +113,7 @@ Open you designer and go to Preferences (or Settings in MacOS), Software AG subm
 
 You should then be able to connect to the containerized MSR and see its packages.  
 
-7.  Create and initialize the Postgres tables
+6.  Create and initialize the Postgres tables
 
 There are DDL files in the following locations:
 -   ./packages/qdtContactManagement/resources/database/contacts.ddl.sql
@@ -136,7 +136,7 @@ docker exec -it postgresql psql -U postgres -d postgres -f /tmp/reference_data.d
 docker exec -it postgresql psql -U postgres -d postgres -f /tmp/reference_data.insert.sql
 ```
 
-8.  Import the postman assets
+7.  Import the postman assets
 
 There are three Postman collections, 1 for each API:
 ./packages/qdtContactManagement/resources/tests/ContactManagementAutomated.postman_collection.json
@@ -161,6 +161,6 @@ For the three environment:
 
 Now you're ready to test the APIs with Postman.
 
-9.  Configuration of the CloudStreams Salesforce connector
+8.  Configuration of the CloudStreams Salesforce connector
 
 TODO
