@@ -191,5 +191,5 @@ Now you can fill in the properties in environment.variables:
 - SALESFORCE_INSTANCE_URL=https://<your-env-prefix>.salesforce.com
 - SALESFORCE_CONSUMER_ID=<Salesforce consumer key (from the Oauth2 app you created)>
 - SALESFORCE_CONSUMER_SECRET=<Salesforce consumer secret (from the Oauth2 app you created)>
-- SALESFORCE_ACCESS_TOKEN=00D7Q000004uMTU!ARYAQIHoxSxOqe1mrxlBEOJn744tBtNmjcNhygZjxmHdHfHYe60x0SxaFlzrFmiMjCKN7PhmuTGeup1yiGmzmyqJ0v4v2ZOI
-- SALESFORCE_REFRESH_TOKEN=5Aep861yNl8cSWS3xW9iNWturrfFfXOp7iNJiau8AnFNQxHK5CfhVMNSCcKLAk9yub7I_fqgqaagvhR.VxkeOLm
+- SALESFORCE_ACCESS_TOKEN=<access token obtained using Postman>
+- SALESFORCE_REFRESH_TOKEN=<refresh token obtained using Postman>
