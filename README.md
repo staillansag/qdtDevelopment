@@ -163,4 +163,25 @@ Now you're ready to test the APIs with Postman.
 
 8.  Configuration of the CloudStreams Salesforce connector
 
-TODO
+First, create a Salesforce Oauth2 application with the following settings:
+- Scopes: offline_access api refresh_token
+- Ensure PKCE is not enabled (it's not useful anyway since we won't be consuming the Salesforce API from the internet)
+- Callback URL: configure these 2 urls
+  - https://oauth.pstmn.io/v1/callback
+  - https://localhost:5543/WmCloudStreams/oauth-redirect.dsp
+
+Then, fetch the consumer ID and secret for this application. We need to use them to get an access token and a refresh token. But you have to wait for a few minutes after the creation of the Salesforce Oauth2 application, because some configuration aspects are managed by Salesforce asynchronously.  
+
+Next, go to Postman and create a new Collection. Edit its settings and go to the Authorization tab. Select type "Oauth 2.0" and fill in the following values under "Configure new token":
+- Token name: token (or any name that you like)
+- Grant type: authorization code
+- Callback URL: https://oauth.pstmn.io/v1/callback (leave "Authorize using browser" unticked)
+- Auth URL: https://login.salesforce.com/services/oauth2/authorize
+- Access token URL: https://login.salesforce.com/services/oauth2/token
+- Client ID: the consumer ID of your Salesforce Oauth2 application
+- Client secret: the consumer secret of your Salesforce Oauth2 application
+- Scope: offline_access api refresh_token
+- State: specify a random string
+- Client authentication: Send client credentials in body
+
+Click on "Get new access token". You should see a consent screen appear in a popup window. Do provide consent, this will trigger the display of the access token and refresh token.
