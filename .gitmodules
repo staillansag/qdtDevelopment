@@ -1,0 +1,15 @@
+[submodule "packages/qdtAccountManagement"]
+	path = packages/qdtAccountManagement
+	url = https://github.com/staillansag/qdtAccountManagement.git
+[submodule "packages/qdtReferenceData"]
+	path = packages/qdtReferenceData
+	url = https://github.com/staillansag/qdtReferenceData.git
+[submodule "packages/qdtContactManagement"]
+	path = packages/qdtContactManagement
+	url = https://github.com/staillansag/qdtContactManagement.git
+[submodule "packages/qdtBackendForFrontend"]
+	path = packages/qdtBackendForFrontend
+	url = https://github.com/staillansag/qdtBackendForFrontend.git
+[submodule "packages/qdtFramework"]
+	path = packages/qdtFramework
+	url = https://github.com/staillansag/qdtFramework.git

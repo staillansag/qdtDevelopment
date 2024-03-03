@@ -8,6 +8,9 @@ services:
       - sag
     ports:
       - "5432:5432"
+    # environment:
+    #   - POSTGRES_PASSWORD=Password123
+    #   - POSTGRES_USER=postgres
     env_file:
       - environment.variables
     volumes:
